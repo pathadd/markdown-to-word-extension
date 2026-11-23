@@ -1,0 +1,28 @@
+.pa-floating-window {
+  box-sizing: border-box;
+  resize: both !important;
+  overflow: auto !important;
+  min-width: min(280px, calc(100vw - 16px));
+  min-height: min(160px, calc(100dvh - 16px));
+  max-width: min(var(--floating-max-width, 100vw), calc(100vw - 16px)) !important;
+  max-height: min(var(--floating-max-height, 100dvh), calc(100dvh - 16px)) !important;
+}
+.pa-floating-window[data-floating-positioned] {
+  position: fixed !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+.pa-window-drag-handle {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--pa-panel, #fff);
+  cursor: move;
+  touch-action: none;
+  user-select: none;
+}
+.pa-window-drag-handle :is(button, a, input, select, textarea, summary) { touch-action: auto; }
+.pa-window-drag-handle :is(input, textarea) { user-select: text; }
+.pa-window-drag-handle:focus-visible { outline: 2px solid var(--pa-accent, #3567a6); outline-offset: 2px; }

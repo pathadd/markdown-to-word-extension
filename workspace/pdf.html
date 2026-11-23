@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script data-pathadd-network="" src="/shared/network-control.js?v=20261122-demo-video" integrity="sha256-iQ0LrVaeoPub1G4ssgfODxMhqAZdyOqEyHyHJ299ftk="></script>
+  <link data-pathadd-network="" rel="stylesheet" href="/shared/network-control.css?v=20261122-demo-video">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>PDF 打印版 · PathAdd</title>
+  <link rel="stylesheet" href="./vendor/katex.min.css">
+  <link rel="stylesheet" href="./workspace.css?v=20261104-reader-typography">
+  <link rel="stylesheet" href="./pdf.css?v=20261104-pdf">
+  <script src="./pdf.js?v=20261107-apex-watermark" defer></script>
+  <link rel="stylesheet" href="./workspace-watermark.css?v=20261107-shared">
+</head>
+<body class="pdf-preview">
+  <header class="pdf-toolbar">
+    <div><strong id="pdf-filename">正在准备 PDF…</strong><p id="pdf-status" role="status" aria-live="polite">正在接收本地文档…</p></div>
+    <button id="pdf-close" type="button">关闭预览</button>
+    <button id="pdf-print" type="button" disabled>打印 / 另存为 PDF</button>
+  </header>
+  <main class="pdf-surface"><article id="paper" class="paper pdf-document" aria-label="PDF 交付文档，只读"></article></main>
+</body>
+</html>

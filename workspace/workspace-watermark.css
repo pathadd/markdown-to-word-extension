@@ -1,0 +1,21 @@
+.extension-watermark {
+  position: fixed;
+  right: 24px;
+  bottom: 56px;
+  z-index: 2;
+  color: #b8c0ca;
+  font: 11px/1.4 Calibri, "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.extension-print-watermark { color: #a6b0bd; font: 9pt/1.4 Calibri, "Microsoft YaHei", sans-serif; letter-spacing: 0; white-space: nowrap; }
+.extension-watermark-control { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+
+@media print {
+  .extension-watermark {
+    display: none;
+  }
+}

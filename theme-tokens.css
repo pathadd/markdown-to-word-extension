@@ -1,0 +1,161 @@
+:root,
+:root[data-pathadd-theme="office"] {
+  color-scheme: light;
+  --pa-bg: #f5f7fa;
+  --pa-panel: #ffffff;
+  --pa-raised: #f8fafc;
+  --pa-inset: #f1f4f8;
+  --pa-hover: #eaf0f8;
+  --pa-border: #dce3ec;
+  --pa-border-strong: #bbc8d9;
+  --pa-text: #263449;
+  --pa-muted: #5e6f84;
+  --pa-subtle: #637287;
+  --pa-accent: #3567a6;
+  --pa-accent-hover: #28558e;
+  --pa-accent-soft: #eaf1fb;
+  --pa-on-accent: #ffffff;
+  --pa-success: #25745d;
+  --pa-success-soft: #eaf5ee;
+  --pa-warning: #8d5a19;
+  --pa-warning-soft: #fff5e4;
+  --pa-danger: #b23c47;
+  --pa-danger-soft: #fceef0;
+  --pa-blue: #3266a0;
+  --pa-teal: #247567;
+  --pa-purple: #77559c;
+  --pa-shadow: 0 8px 30px #23375308;
+  --pa-dialog-shadow: 0 24px 80px #23375326;
+  --pa-backdrop: #28374d52;
+  --pa-hero: linear-gradient(115deg, #f3f7fd, #edf5f5);
+  --pa-art: linear-gradient(145deg, #e1edf8, #dceee9);
+  --pa-canvas: #e9edf2;
+  --bg: var(--pa-bg);
+  --panel: var(--pa-panel);
+  --text: var(--pa-text);
+  --muted: var(--pa-muted);
+  --border: var(--pa-border);
+  --line: var(--pa-border);
+  --accent: var(--pa-accent);
+}
+:root[data-pathadd-theme="paper"] {
+  color-scheme: light;
+  --pa-bg: #f6f3ed;
+  --pa-panel: #fffdf8;
+  --pa-raised: #faf7f0;
+  --pa-inset: #f2eee5;
+  --pa-hover: #ece7da;
+  --pa-border: #e1d9cb;
+  --pa-border-strong: #c9bda9;
+  --pa-text: #413c33;
+  --pa-muted: #736958;
+  --pa-subtle: #7b705e;
+  --pa-accent: #716142;
+  --pa-accent-hover: #594b32;
+  --pa-accent-soft: #eee8d8;
+  --pa-on-accent: #ffffff;
+  --pa-success: #4a7055;
+  --pa-success-soft: #edf2e8;
+  --pa-warning: #8c5c24;
+  --pa-warning-soft: #fbf0da;
+  --pa-danger: #a53d43;
+  --pa-danger-soft: #f9ece8;
+  --pa-blue: #456a88;
+  --pa-teal: #4d7261;
+  --pa-purple: #795b80;
+  --pa-shadow: 0 8px 30px #51442c08;
+  --pa-dialog-shadow: 0 24px 80px #51442c26;
+  --pa-backdrop: #443c3052;
+  --pa-hero: linear-gradient(115deg, #faf5e8, #efeee2);
+  --pa-art: linear-gradient(145deg, #eee4ca, #e3e7d5);
+  --pa-canvas: #e9e4d9;
+}
+:root[data-pathadd-theme="dark"] {
+  color-scheme: dark;
+  --pa-bg: #101621;
+  --pa-panel: #18212e;
+  --pa-raised: #1d2837;
+  --pa-inset: #121b28;
+  --pa-hover: #273549;
+  --pa-border: #303e51;
+  --pa-border-strong: #53647b;
+  --pa-text: #e4eaf3;
+  --pa-muted: #a6b4c8;
+  --pa-subtle: #96a7bf;
+  --pa-accent: #9ab9ef;
+  --pa-accent-hover: #b5cefa;
+  --pa-accent-soft: #253854;
+  --pa-on-accent: #15253d;
+  --pa-success: #8bcdb0;
+  --pa-success-soft: #203d34;
+  --pa-warning: #e4be7d;
+  --pa-warning-soft: #3b3020;
+  --pa-danger: #f0a3ab;
+  --pa-danger-soft: #412832;
+  --pa-blue: #9cbbf2;
+  --pa-teal: #88cdbd;
+  --pa-purple: #c3ade9;
+  --pa-shadow: 0 8px 30px #00000014;
+  --pa-dialog-shadow: 0 24px 80px #00000066;
+  --pa-backdrop: #050a12b8;
+  --pa-hero: linear-gradient(115deg, #1d2c3d, #1b3238);
+  --pa-art: linear-gradient(145deg, #2d4863, #274b46);
+  --pa-canvas: #253040;
+}
+:root[data-pathadd-theme] {
+  background: var(--pa-bg);
+  color: var(--pa-text);
+  accent-color: var(--pa-accent);
+}
+.pathadd-theme-control, .pa-app-language-control {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  margin: 0;
+  padding: 5px 9px;
+  border: 1px solid var(--pa-border);
+  border-radius: 8px;
+  background: var(--pa-panel);
+  color: var(--pa-muted);
+  font: 12px/1.5 "Segoe UI", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+.pathadd-theme-control > select, .pa-app-language-control > select {
+  display: block;
+  width: auto;
+  min-width: 90px;
+  margin: 0;
+  padding: 2px 18px 2px 3px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--pa-panel);
+  color: var(--pa-text);
+  font: inherit;
+  cursor: pointer;
+}
+.pathadd-theme-control > select:focus-visible, .pa-app-language-control > select:focus-visible {
+  outline: 2px solid var(--pa-accent);
+  outline-offset: 3px;
+}
+.pathadd-theme-control > select > option, .pa-app-language-control > select > option { background: var(--pa-panel); color: var(--pa-text); }
+.pathadd-theme-notice:not(:empty) {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  z-index: 1100;
+  width: 230px;
+  padding: 10px 12px;
+  border: 1px solid var(--pa-border-strong);
+  border-radius: 8px;
+  background: var(--pa-panel);
+  color: var(--pa-warning);
+  box-shadow: var(--pa-shadow);
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .pathadd-theme-control, .pa-app-language-control { gap: 5px; padding: 5px 7px; }
+  .pathadd-theme-control > span:first-child, .pa-app-language-control > span:first-child { display: none; }
+}

@@ -1,0 +1,5 @@
+{
+  "extensionName": { "message": "PathAdd · AI 最后一公里" },
+  "extensionDescription": { "message": "本地将 Markdown 排版为可编辑 Word 或 PDF，支持专业模板、人工润色与 LaTeX 公式。" },
+  "actionTitle": { "message": "PathAdd · Markdown 转 Word / PDF" }
+}

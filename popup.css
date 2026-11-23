@@ -1,0 +1,18 @@
+:root { color-scheme: light; font-family: "Microsoft YaHei", sans-serif; color: #263449; background: #f5f7fa; }
+* { box-sizing: border-box; }
+body { width: 320px; margin: 0; padding: 20px; }
+header { display: flex; align-items: center; gap: 12px; }
+.logo { padding: 7px 10px; border-radius: 10px; background: #eaf0f8; color: #3567a6; font-size: 25px; font-weight: 700; }
+h1 { margin: 0; font-size: 17px; }
+header p { margin: 5px 0 0; font-size: 11px; color: #5e6f84; }
+.language-control { display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin-top: 12px; font-size: 11px; }
+.language-control select { padding: 4px 6px; border: 1px solid #bbc8d9; border-radius: 5px; background: white; color: #263449; }
+.intro { margin: 18px 0; font-size: 12px; line-height: 1.8; }
+button { display: block; width: 100%; margin-top: 9px; padding: 11px; border: 1px solid #bbc8d9; border-radius: 7px; background: white; color: #263449; font: inherit; font-size: 12px; cursor: pointer; }
+.primary { background: #3567a6; color: white; border-color: #3567a6; font-weight: 700; }
+button:hover { filter: brightness(.97); }
+button:focus-visible, a:focus-visible { outline: 2px solid #3567a6; outline-offset: 3px; }
+.site-link { display: block; margin-top: 10px; color: #3567a6; font-size: 11px; text-underline-offset: 3px; }
+footer { margin-top: 18px; color: #5e6f84; font-size: 10px; line-height: 1.9; }
+#error { color: #b23c47; font-size: 11px; line-height: 1.6; }
+#error:empty { display: none; }

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-pathadd-default-theme="office"><head>
+  <script data-pathadd-network="" src="../network-control.js?v=20261122-demo-video"></script>
+  <link data-pathadd-network="" rel="stylesheet" href="../network-control.css?v=20261122-demo-video">
+  <link rel="stylesheet" href="../brand.css?v=20261108-site-brand">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Markdown 转 Word · 可编辑 DOCX 与公式导出 | pathadd</title>
+  
+  
+  
+  
+  <link rel="stylesheet" href="./vendor/katex.min.css">
+  <link rel="stylesheet" href="./workspace.css?v=20261118-feedback-blue">
+  <script src="../site-language.js?v=20261112-zh-routes"></script>
+  <script data-document-seo="" src="./document-seo.js?v=20261114-geo" defer=""></script><script src="./workspace.js?v=20261114-clear" defer=""></script>
+  <link rel="stylesheet" href="../theme-tokens.css?v=20261115-language-controls">
+  <link rel="stylesheet" href="../themes.css">
+  <script src="../theme.js?v=20261115-landing-header"></script>
+  <link rel="stylesheet" href="../floating-windows.css?v=20261104">
+  <script src="../floating-windows.js?v=20261104" defer=""></script>
+  <link rel="stylesheet" href="./workspace-layout.css?v=20261104-export-right">
+  <link rel="stylesheet" href="./workspace-watermark.css?v=20261107-shared">
+  <link data-tool-feedback-style="" rel="stylesheet" href="./tool-feedback.css?v=20261118-feedback-blue">
+<script data-document-seo="" id="document-seo-data" type="application/json">{"zh-CN":{"title":"Markdown 转 Word · 可编辑 DOCX 与公式导出 | pathadd","heading":"Markdown 转 Word","description":"将 AI 生成的 Markdown 转为可编辑的 Word 文档，支持表格、代码、LaTeX 公式与 Mermaid 图表（时间线、流程图等）。调整排版，导出 DOCX，或通过本地打印另存为 PDF。文档在浏览器本地处理。","limits":"支持 UTF-8 Markdown，最大 1 MiB。公式导出为 Word 原生公式；Mermaid 代码块本地渲染后以高清图片嵌入 Word 或导出 PDF；不支持的公式与图表语法会提示。外部图片保留文字说明。编辑预览不等于 Word 最终分页。草稿默认保存在当前浏览器，可关闭并删除。","about":"关于此工具","related":"相关工具","purpose":"能做什么？","stepsHeading":"使用步骤","limitsHeading":"数据处理与使用限制","steps":["导入或粘贴 UTF-8 Markdown，在左侧核对原稿。","在右侧编辑文档，调整模板与排版，核对表格、公式和 Mermaid 图表。","导出可编辑 DOCX；需要 PDF 时打开本地打印预览，检查分页后另存为 PDF。"]},"en":{"title":"Markdown to Word Converter · Editable DOCX & Equations | pathadd","heading":"Markdown to Word converter","description":"Convert AI-generated Markdown to editable Word documents with tables, code, native equations, and Mermaid diagrams (timelines, flowcharts, and more). Edit formatting, export DOCX, or save as PDF through local printing. Documents are processed in your browser.","limits":"UTF-8 Markdown, up to 1 MiB. LaTeX exports as native Word equations, and Mermaid diagrams render locally into high-resolution images in DOCX or vector diagrams in PDF; syntax errors are reported. External images remain text placeholders. Check final pagination in Word. Drafts are saved in this browser by default; you can turn this off and delete them.","about":"About this tool","related":"Related tools","purpose":"What does this tool do?","stepsHeading":"How to use it","limitsHeading":"Data handling and limits","steps":["Import or paste UTF-8 Markdown and check the original on the left.","Edit the document on the right, adjust formatting, and review tables, equations, and Mermaid diagrams.","Export editable DOCX. For PDF, open the local print preview and check pagination before saving."]},"siblings":[{"slug":"markdown2word","path":"./","zh-CN":"Markdown 转 Word","en":"Markdown to Word converter"},{"slug":"markdown2markdown","path":"/tools/markdown2markdown/","zh-CN":"Markdown 编辑与导出","en":"Markdown editor and formatter"},{"slug":"ai-collision","path":"/tools/ai-collision/","zh-CN":"撞点 · AI 笔记、AI 随笔与思维碰撞记录","en":"SparkPoint: AI notes, journal & decision organizer"},{"slug":"html2html","path":"/tools/html2html/","zh-CN":"HTML 文档编辑与导出","en":"Local HTML document editor"}]}</script><link data-document-seo="" rel="stylesheet" href="./document-seo.css?v=20261114-geo"><link rel="icon" type="image/x-icon" href="../icons/icon32.png"></head>
+<body class="workspace-single-row">
+  <header class="topbar">
+    <a class="brand pathadd-site-brand" href="https://pathadd.com/" target="_blank" rel="noopener noreferrer" title="打开 PathAdd 工具站（新标签页）"><span class="brand-mark">p<span>+</span></span><span class="brand-wordmark">pathadd<span class="brand-domain">.com</span></span></a>
+    <nav aria-label="当前工具"><strong>markdown2word</strong></nav>
+    <span class="privacy"><i></i>本地处理 · 内容不上传</span>
+    <section class="template-bar" aria-label="文档模板">
+      <div class="template-label"><strong>文档模板</strong><small>切换模板不改变已编辑内容</small></div>
+      <div class="templates" role="group" aria-label="选择模板">
+        <button class="template selected" data-template="business" aria-pressed="true"><span class="swatch business">Aa</span><span><strong>商务简洁</strong><small>清晰克制，适合正式交付</small></span></button>
+        <button class="template" data-template="technical" aria-pressed="false"><span class="swatch technical">Aa</span><span><strong>技术专业</strong><small>代码、公式与结构兼顾</small></span></button>
+        <button class="template" data-template="compact" aria-pressed="false"><span class="swatch compact">Aa</span><span><strong>紧凑报告</strong><small>少些留白，多些信息</small></span></button>
+      </div>
+      <strong class="workspace-tagline">AI 底色 + 您的温度</strong>
+      <button id="settings-open" class="button subtle">排版参数</button>
+      <button id="export" class="button primary" disabled="">导出Word <span aria-hidden="true">↓</span></button>
+    </section>
+  </header>
+  <main>
+    <div class="workbench">
+      <section class="source-panel" aria-label="只读 Markdown 原文">
+        <header class="panel-header"><div><span class="dot"></span><h2>原文预览</h2><span class="pill">只读</span><span id="filename">尚未导入</span></div><div class="actions"><div class="source-view-controls"><select id="source-view" aria-label="原文显示方式" aria-controls="source"><option value="preview">预览</option><option value="source">源码</option></select><span id="sync-status">只读 · 段落联动</span></div><button id="source-expand" aria-haspopup="dialog" aria-controls="source-reader-dialog" title="展开 Markdown 整页阅读">整页预览</button><button id="paste-open">粘贴</button><button id="import">导入文件</button><button id="example">示例</button><button id="clear" type="button" title="清空" aria-label="清空" hidden=""><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M10 11v6M14 11v6"></path></svg></button></div></header>
+        <div id="source" class="source-preview markdown-reading" contenteditable="false" tabindex="0" role="region" aria-label="导入原文的排版预览，只读"></div>
+        <footer class="panel-footer"><span id="source-stats">0 字符</span><span>UTF-8 · 最大 1 MiB</span></footer>
+      </section>
+      <section class="document-panel" aria-label="可编辑的 Word 文档">
+        <header class="panel-header"><div><span class="dot green"></span><h2>交付 预览</h2><span class="pill editable">可编辑</span></div><em class="document-privacy">🔒 纯本地渲染 · 数据绝不上传</em>
+        <div class="editor-toolbar" role="toolbar" aria-label="文档编辑">
+          <button data-command="undo" title="撤销 Ctrl+Z" aria-label="撤销">↶</button><button data-command="redo" title="重做 Ctrl+Shift+Z" aria-label="重做">↷</button>
+          <span class="divider"></span>
+          <select id="block-type" aria-label="段落类型"><option value="paragraph">正文</option><option value="1">主标题</option><option value="2">一级标题</option><option value="3">二级标题</option></select>
+          <button data-command="bold" title="加粗 Ctrl+B" aria-label="加粗"><b>B</b></button><button data-command="italic" title="斜体 Ctrl+I" aria-label="斜体"><i>I</i></button><button data-command="underline" title="下划线 Ctrl+U" aria-label="下划线"><u>U</u></button><button data-command="strike" title="删除线" aria-label="删除线"><s>S</s></button>
+          <span class="divider"></span>
+          <button data-command="bulletList" title="无序列表">• 列表</button><button data-command="orderedList" title="编号列表">1. 列表</button>
+          <button data-command="left" title="左对齐">左齐</button><button data-command="center" title="居中">居中</button>
+          <button data-command="codeBlock" title="代码块">代码</button><button id="formula-open" title="插入或修改 LaTeX 公式">ƒx 公式</button>
+          <button data-command="table" title="插入三行三列表格">表格</button><button data-command="addRow" title="在当前表格下方增加一行">＋行</button><button data-command="deleteRow" title="删除当前表格行">－行</button>
+        </div>
+        <div class="actions"><label class="scroll-sync-control"><input id="sync-scroll" type="checkbox" checked="">同步滚动</label><button id="replace-open">查找替换</button><button id="reset">还原原稿</button></div></header>
+        <div class="paper-viewport"><div class="paper" id="paper"><div id="editor"></div></div></div>
+        <footer class="panel-footer"><span id="document-stats">准备就绪</span><label class="extension-watermark-control" title="https://pathadd.com"><input id="extension-watermark-toggle" type="checkbox" checked=""> <span>水印</span></label><label><input id="remember" type="checkbox">在本机记住草稿</label><span>A4 · 连续编辑预览</span></footer>
+      </section>
+    </div>
+    <div class="workspace-bottom">
+    <div id="status" class="status" role="status" aria-live="polite">正在加载本地编辑器…</div>
+    <details class="workspace-help"><summary>使用说明与导出提醒</summary><section class="notes"><p><strong>内容由你把关</strong>直接修改语气、承诺和责任词；不会自动调用 AI，也不会擅自改写事实。</p><p><strong>公式不是截图</strong>点击公式编辑 LaTeX，导出 Word 原生公式。</p><p><strong>另存为 PDF</strong>使用右侧已编辑文档及当前排版参数，打开本地 A4 打印页。打印窗口选择「另存为 PDF」，在「更多设置」中关闭「页眉和页脚」，避免网址、时间和文件名出现在交付文件中，并开启「背景图形」。修改文档后需重新生成，最终分页以打印窗口为准。</p><p><strong>交付前再看一眼</strong>这里是连续编辑视图，不是真实 Word 分页。图片暂保留说明，复杂公式不支持时明确提示。</p></section></details>
+    <details data-document-seo="" class="pa-tool-about"><summary data-document-seo="" data-seo-copy="about">关于此工具</summary><h1 data-document-seo="" data-seo-copy="heading">Markdown 转 Word</h1><h3 data-document-seo="" data-seo-copy="purpose">能做什么？</h3><p data-document-seo="" data-seo-copy="description">将 AI 生成的 Markdown 转为可编辑的 Word 文档，支持表格、代码、LaTeX 公式与 Mermaid 图表（时间线、流程图等）。调整排版，导出 DOCX，或通过本地打印另存为 PDF。文档在浏览器本地处理。</p><h3 data-document-seo="" data-seo-copy="stepsHeading">使用步骤</h3><ol data-document-seo=""><li data-document-seo="" data-seo-step="0">导入或粘贴 UTF-8 Markdown，在左侧核对原稿。</li><li data-document-seo="" data-seo-step="1">在右侧编辑文档，调整模板与排版，核对表格、公式和 Mermaid 图表。</li><li data-document-seo="" data-seo-step="2">导出可编辑 DOCX；需要 PDF 时打开本地打印预览，检查分页后另存为 PDF。</li></ol><h3 data-document-seo="" data-seo-copy="limitsHeading">数据处理与使用限制</h3><p data-document-seo="" data-seo-copy="limits">支持 UTF-8 Markdown，最大 1 MiB。公式导出为 Word 原生公式；Mermaid 代码块本地渲染后以高清图片嵌入 Word 或导出 PDF；不支持的公式与图表语法会提示。外部图片保留文字说明。编辑预览不等于 Word 最终分页。草稿默认保存在当前浏览器，可关闭并删除。</p><strong data-document-seo="" data-seo-copy="related">相关工具</strong><nav data-document-seo=""><a data-document-seo="" href="https://pathadd.com/zh/tools/markdown2markdown/" target="_blank" rel="noopener noreferrer" data-seo-sibling="1">Markdown 编辑与导出</a><a data-document-seo="" href="https://pathadd.com/zh/tools/ai-collision/" target="_blank" rel="noopener noreferrer" data-seo-sibling="2">撞点 · AI 笔记、AI 随笔与思维碰撞记录</a><a data-document-seo="" href="https://pathadd.com/zh/tools/html2html/" target="_blank" rel="noopener noreferrer" data-seo-sibling="3">HTML 文档编辑与导出</a><a data-document-seo="" href="https://pathadd.com/en/tools/markdown2word/" target="_blank" rel="noopener noreferrer" hreflang="en" lang="en" data-seo-language="">English</a></nav></details></div>
+  </main>
+  <input id="file" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden="">
+  <dialog id="source-reader-dialog" aria-labelledby="source-reader-title">
+    <header class="reader-header"><div><h2 id="source-reader-title">Markdown 阅读 <small>只读</small></h2><span id="source-reader-filename"></span></div><div class="reader-actions"><select id="source-reader-zoom" aria-label="阅读缩放"><option value="0.75">75%</option><option value="1" selected="">100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option></select><button type="button" data-close="" autofocus="" aria-label="关闭整页预览" title="关闭（Esc）">×</button></div></header>
+    <div id="source-reader-body" tabindex="0" role="region" aria-label="整页 Markdown 只读预览"><article id="source-reader-page" class="source-preview markdown-reading" contenteditable="false"></article></div>
+  </dialog>
+  <dialog id="paste-dialog"><form id="paste-form"><header><h2>导入 Markdown</h2><button type="button" data-close="" aria-label="关闭">×</button></header><p>粘贴后点击导入，左侧将锁定为只读原稿。后续修改在右侧进行。</p><textarea id="paste-text" required="" maxlength="1048576" placeholder="在这里粘贴 AI 生成的 Markdown…" aria-label="待导入的 Markdown"></textarea><footer><button type="button" data-close="" class="button">取消</button><button class="button primary">导入并排版</button></footer></form></dialog>
+  <dialog id="formula-dialog"><form id="formula-form"><header><h2>LaTeX 公式</h2><button type="button" data-close="" aria-label="关闭">×</button></header><p>输入公式本身，无需 $ 分隔符。点击已有公式可再次编辑。</p><textarea id="latex" required="" maxlength="12000" spellcheck="false" aria-label="LaTeX 公式源码" placeholder="\frac{-b \pm \sqrt{b^2-4ac}}{2a}"></textarea><label class="check"><input id="formula-block" type="checkbox">独立公式（单独一行）</label><div id="formula-preview" class="formula-preview" aria-live="polite"></div><p id="formula-error" class="error" role="alert"></p><footer><button type="button" data-close="" class="button">取消</button><button id="formula-save" class="button primary">应用公式</button></footer></form></dialog>
+  <dialog id="mermaid-dialog"><form id="mermaid-form"><header><h2>Mermaid 图表</h2><button type="button" data-close="" aria-label="关闭">×</button></header><p>在浏览器本地渲染 Mermaid 图表，导出 Word 时自动转为高清图片嵌入。</p><textarea id="mermaid-code" required="" maxlength="32000" spellcheck="false" aria-label="Mermaid 图表源码" placeholder="timeline
+  title Incident Timeline
+  10:00 : Alert triggered"></textarea><div id="mermaid-preview" class="formula-preview mermaid-preview" aria-live="polite"></div><p id="mermaid-error" class="error" role="alert"></p><footer><button type="button" data-close="" class="button">取消</button><button id="mermaid-save" class="button primary">应用图表</button></footer></form></dialog>
+  <dialog id="settings-dialog" aria-labelledby="settings-drag"><form id="settings-form"><header><h2><span id="settings-drag" tabindex="0" role="button" aria-label="移动排版参数面板，可拖动或按方向键移动">排版参数 · 拖动</span></h2><button type="button" data-close="" aria-label="关闭">×</button></header><p>应用后保持面板打开，可直接查看右侧变化。单位 pt；中文微软雅黑，西文 Calibri，代码 Consolas。Word 字号按 0.5 pt 取最近值（9.8 → 10、8.3 → 8.5），预览与导出一致。</p><div class="settings-grid">
+    <label>正文字号<input name="bodySize" type="number" min="8" max="18" step="0.1" required=""></label><label>正文固定行距<input name="bodyLine" type="number" min="10" max="32" step="0.1" required=""></label>
+    <label>正文首行缩进（字符）<input name="firstLineIndent" type="number" min="0" max="4" step="0.5" required=""></label><label>正文对齐<select name="bodyAlignment"><option value="left">左对齐</option><option value="justify">两端对齐</option></select></label>
+    <label>正文段前间距<input name="paragraphBefore" type="number" min="0" max="36" step="0.1" required=""></label><label>正文段后间距<input name="paragraphAfter" type="number" min="0" max="20" step="0.1" required=""></label>
+    <label>正文左缩进（pt）<input name="indentLeft" type="number" min="0" max="72" step="0.1" required=""></label><label>正文右缩进（pt）<input name="indentRight" type="number" min="0" max="72" step="0.1" required=""></label>
+    <label>上／下页边距<input name="marginY" type="number" min="18" max="90" step="0.1" required=""></label><label>左／右页边距<input name="marginX" type="number" min="18" max="90" step="0.1" required=""></label>
+    <label>主标题字号<input name="titleSize" type="number" min="10" max="36" step="0.1" required=""></label><label>一级标题字号<input name="h1Size" type="number" min="9" max="28" step="0.1" required=""></label>
+    <label>二级标题字号<input name="h2Size" type="number" min="9" max="24" step="0.1" required=""></label><label>章节标题段前<input name="headingBefore" type="number" min="0" max="48" step="0.1" required=""></label>
+    <label>章节标题段后<input name="headingAfter" type="number" min="0" max="36" step="0.1" required=""></label>
+    <label>代码字号<input name="codeSize" type="number" min="7" max="16" step="0.1" required=""></label><label>代码固定行距<input name="codeLine" type="number" min="9" max="28" step="0.1" required=""></label>
+    <label>表格字号<input name="tableSize" type="number" min="7" max="16" step="0.1" required=""></label><label>表格固定行距<input name="tableLine" type="number" min="9" max="28" step="0.1" required=""></label>
+    <label>单元格上／下内边距<input name="cellY" type="number" min="0" max="12" step="0.1" required=""></label><label>单元格左／右内边距<input name="cellX" type="number" min="0" max="18" step="0.1" required=""></label>
+  </div><p class="preset-help">正文缩进、段前和默认对齐不影响列表、表格、代码或引用；单段手动对齐优先。章节标题间距不含主标题。</p><label class="preset-label">个人预设名称<input id="preset-name" maxlength="60" placeholder="例如：复盘报告 · 适中版"></label><p class="preset-help">预设仅存于此浏览器、此网站的本地存储（localStorage），不含文档内容。再次保存覆盖原预设；清除网站数据会删除。</p><p id="settings-error" class="error" role="alert"></p><footer><button id="preset-load" type="button" class="button">读取个人预设</button><button id="preset-save" type="button" class="button">保存个人预设</button><button class="button primary">应用参数</button></footer></form></dialog>
+  <dialog id="replace-dialog"><form id="replace-form"><header><h2>查找替换</h2><button type="button" data-close="" aria-label="关闭">×</button></header><p>仅替换右侧正文文字，不改原稿、公式和链接地址。可使用撤销恢复。</p><label>查找<input id="find-text" required="" maxlength="500"></label><label>替换为<input id="replacement" maxlength="500"></label><p id="replace-result" role="status"></p><footer><button type="button" data-close="" class="button">关闭</button><button class="button primary">全部替换</button></footer></form></dialog>
+  <div class="extension-watermark" aria-hidden="true">https://pathadd.com</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

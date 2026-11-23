@@ -1,0 +1,12 @@
+.pa-tool-about { font-size: 12px; line-height: 1.6; color: var(--pa-text); }
+.pa-tool-about summary { cursor: pointer; white-space: nowrap; }
+.pa-tool-about[open] { position: fixed; right: 16px; bottom: 32px; z-index: 80; width: 580px; max-width: calc(100% - 32px); max-height: 70vh; overflow: auto; padding: 16px; border: 1px solid var(--pa-border); border-radius: 6px; background: var(--pa-panel); box-shadow: 0 8px 32px #0003; }
+.pa-tool-about h1, .pa-tool-about h2 { margin: 12px 0 8px; font-size: 18px; line-height: 1.5; letter-spacing: 0; }
+.pa-tool-about p { margin: 8px 0; }
+.pa-tool-about h3 { margin: 14px 0 6px; font-size: 14px; line-height: 1.5; }
+.pa-tool-about ol { padding-left: 22px; }
+.pa-tool-about li { margin: 8px 0; }
+.pa-tool-about nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; }
+.pa-tool-about a { color: var(--pa-accent); }
+.statusbar > .pa-tool-about { margin-left: auto; flex-shrink: 0; }
+.workspace-bottom > .pa-tool-about { margin-left: auto; flex-shrink: 0; }

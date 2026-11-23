@@ -1,0 +1,18 @@
+#export-feedback { position: relative; flex: 0 0 auto; margin-left: auto; font-size: 12px; line-height: 1.5; text-align: left; }
+#export-feedback + .pa-tool-about { margin-left: 0; flex-shrink: 0; }
+#export-feedback summary { cursor: pointer; white-space: nowrap; color: #2563eb; }
+#export-feedback summary:hover { color: #1d4ed8; }
+#export-feedback form { position: absolute; z-index: 20; right: 0; bottom: calc(100% + 12px); box-sizing: border-box; width: 392px; max-width: calc(100vw - 32px); padding: 16px; border: 1px solid var(--pa-border, #dce3ec); border-radius: 8px; background: var(--pa-panel, #fff); color: var(--pa-text, #263449); box-shadow: var(--pa-shadow, 0 4px 20px #0002); }
+#export-feedback fieldset { display: flex; gap: 16px; margin: 0 0 12px; padding: 0; border: 0; }
+#export-feedback legend { padding: 0 0 8px; font-weight: 600; }
+#export-feedback fieldset label { display: inline-flex; align-items: center; gap: 5px; }
+#export-feedback input { width: auto; margin: 0; padding: 0; accent-color: #2563eb; }
+#export-feedback textarea { display: block; box-sizing: border-box; width: 100%; margin: 6px 0 8px; resize: vertical; font: inherit; background: var(--pa-inset, #f1f4f8); color: inherit; border: 1px solid var(--pa-border, #dce3ec); border-radius: 4px; padding: 8px; }
+#export-feedback small { display: block; font-size: 11px; line-height: 1.5; color: var(--pa-muted, #5e6f84); }
+#export-feedback .feedback-actions { display: flex; gap: 8px; margin-top: 12px; }
+#export-feedback button { min-width: 104px; }
+body #feedback-submit { color: #fff; background: #2563eb; border-color: #2563eb; }
+body #feedback-submit:hover:not(:disabled) { background: #1d4ed8; border-color: #1d4ed8; }
+body #feedback-submit:disabled { opacity: .55; cursor: default; }
+#feedback-status { min-height: 3em; margin: 8px 0 0; font-size: 12px; line-height: 1.5; color: var(--pa-text, #263449); }
+#feedback-status[data-error="true"] { color: var(--pa-danger, #b91c1c); }
